@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  height: 100vmin;
+  height: 15vmin;
   background-color: #292b34;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -21,13 +21,14 @@
 .App-link {
   color: #09d3ac;
 }
-
-.navbar-nav {
-  display: inline-flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  flex-basis: 100%;
-}
-.nav-item {
-  flex-basis: 1%;
+@media screen and (min-width: 992px) {
+  .navbar-nav {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-basis: 100%;
+  }
+  .nav-item {
+    flex-basis: 1%;
+  }
 }

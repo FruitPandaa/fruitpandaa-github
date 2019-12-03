@@ -1,6 +1,39 @@
 import React from 'react'
 import logo from './logo.svg'
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
+
+const navItems = [
+  {
+    id: 1,
+    link: 'todo',
+    text: 'Todo',
+  },
+  {
+    id: 2,
+    link: 'router',
+    text: 'Router',
+  },
+  {
+    id: 3,
+    link: 'placeholder',
+    text: 'Placeholder',
+  },
+  {
+    id: 4,
+    link: 'kappa',
+    text: 'Kappa',
+  },
+]
+
+const getNavbarItems = navItems.map(props => {
+  return (
+    <Nav.Item key={props.id}>
+      <Nav.Link key={props.id} href={props.link}>
+        {props.text}
+      </Nav.Link>
+    </Nav.Item>
+  )
+})
 
 class Navigation extends React.Component {
   render() {
@@ -18,40 +51,7 @@ class Navigation extends React.Component {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="#todo">Todo</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#router">Router</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <NavDropdown
-                title="Dropdown"
-                id="collapsible-nav-dropdown"
-              >
-                <NavDropdown.Item href="#dropdown/3.1">
-                  1
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#dropdown/3.2">
-                  2
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#dropdown/3.3">
-                  3
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#dropdown/3.4">
-                  4
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#placeholder">placeholder</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#placeholder">placeholder</Nav.Link>
-            </Nav.Item>
-          </Nav>
+          <Nav>{getNavbarItems}</Nav>
         </Navbar.Collapse>
       </Navbar>
     )

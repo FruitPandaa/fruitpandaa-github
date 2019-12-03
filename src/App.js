@@ -34,11 +34,13 @@ import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navigation />
-      </header>
-    </div>
+    <React.StrictMode>
+      <div className="App">
+        <header className="App-header">
+          <Navigation />
+        </header>
+      </div>
+    </React.StrictMode>
   )
 }
 
