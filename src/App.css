@@ -1,5 +1,7 @@
 .App {
+  font-family: 'Consolas';
   text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App-logo {
@@ -7,28 +9,87 @@
 }
 
 .App-header {
-  height: 15vmin;
   background-color: #292b34;
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-header .navbar {
-  display: flex;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(2px + 2vmin);
 }
-
 .App-link {
   color: #09d3ac;
 }
-@media screen and (min-width: 992px) {
-  .navbar-nav {
-    display: inline-flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    flex-basis: 100%;
-  }
-  .nav-item {
-    flex-basis: 1%;
-  }
+.darkgray {
+  background-color: #202127;
+  color: #fff;
+}
+.darkgray2 {
+  background-color: #31333a;
+  color: #fff;
+}
+.contrast {
+  background-color: #fff;
+  color: #000;
+}
+.contact {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.contact-input {
+  box-sizing: border-box;
+  border-radius: 0px;
+  font-size: inherit;
+  background: white;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+  padding: 1em;
+  box-shadow: none;
+  text-rendering: auto;
+  color: -internal-light-dark-color(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  -webkit-appearance: textfield;
+  background-color: -internal-light-dark-color(white, black);
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-transform: uppercase;
+}
+.contact-group {
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #1f2024;
+  border-image: initial;
+}
+.contact button {
+  color: rgb(33, 37, 41);
+  font-family: 'Consolas';
+  text-transform: uppercase;
+  height: 6rem;
+  width: 210px;
+  max-width: 100%;
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+  background: white;
+  border-radius: 0px;
+  border-width: 0.1rem !important;
+  border-style: solid !important;
+  border-color: rgb(33, 37, 41) !important;
+  border-image: initial !important;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 480px) {
 }

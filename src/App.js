@@ -1,36 +1,12 @@
 import React from 'react'
 import Navigation from './Navigation'
+import Hero from './Hero'
+import Client from './Client'
+import Social from './Social'
+import Contact from './Contact'
+import Footer from './Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-
-/////////////////////////////////////////////////////////////////// ⚛️ yarn
-//
-// yarn start
-// Starts the development server.
-//
-// yarn build
-// Bundles the app into static files for production.
-//
-// yarn test
-// Starts the test runner.
-//
-// yarn eject
-// Removes this tool and copies build dependencies, configuration files
-// and scripts into the app directory. If you do this, you can’t go back!
-//
-/////////////////////////////////////////////////////////////////// ⚛️ git
-//
-// Create a directory to contain the project.
-// Go into the new directory.
-// Type git init.
-// Write some code.
-// Type git add . to add the files (see the typical use page).
-// Type git commit.
-//
-/////////////////////////////////////////////////////////////////// ⚛️ npx
-//
-// Creating react app
-// npx create-react-app app-name
 
 function App() {
   return (
@@ -39,6 +15,13 @@ function App() {
         <header className="App-header">
           <Navigation />
         </header>
+        <main className="mt-2 py-5 darkgray">
+          <Hero />
+          <Client />
+          <Social />
+          <Contact />
+          <Footer />
+        </main>
       </div>
     </React.StrictMode>
   )

@@ -1,33 +1,35 @@
 import React from 'react'
-import logo from './logo.svg'
-import {Navbar, Nav} from 'react-bootstrap'
+import {Navbar, Nav, Container, Col, Row} from 'react-bootstrap'
 
 const navItems = [
   {
     id: 1,
-    link: 'todo',
-    text: 'Todo',
+    link: '#clients',
+    text: 'Clients',
   },
   {
     id: 2,
-    link: 'router',
-    text: 'Router',
+    link: '#social',
+    text: 'Social Media',
   },
   {
     id: 3,
-    link: 'placeholder',
-    text: 'Placeholder',
+    link: '#contact',
+    text: 'Contact Me',
   },
   {
     id: 4,
-    link: 'kappa',
-    text: 'Kappa',
+    link: 'Placeholder',
+    text: 'Placeholder',
   },
 ]
 
 const getNavbarItems = navItems.map(props => {
   return (
-    <Nav.Item key={props.id}>
+    <Nav.Item
+      className="d-flex align-items-center justify-content-center text-uppercase"
+      key={props.id}
+    >
       <Nav.Link key={props.id} href={props.link}>
         {props.text}
       </Nav.Link>
@@ -45,14 +47,19 @@ class Navigation extends React.Component {
         bg="dark"
         variant="dark"
       >
-        <Navbar.Brand href="#main">
-          <img src={logo} className="App-logo" alt="logo" />
-          aleksander.klebek
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav>{getNavbarItems}</Nav>
-        </Navbar.Collapse>
+        <Container>
+          <Row className="position-relative w-100">
+            <Col className="d-none d-lg-flex">
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Collapse
+                className="justify-content-center"
+                id="responsive-navbar-nav"
+              >
+                <Nav>{getNavbarItems}</Nav>
+              </Navbar.Collapse>
+            </Col>
+          </Row>
+        </Container>
       </Navbar>
     )
   }
