@@ -27,8 +27,25 @@
   background-color: #31333a;
   color: #fff;
 }
+.gray-font {
+  color: #c3c4c9c5;
+}
+.hero-property {
+  text-align: left;
+}
+.hero-property h2 {
+  color: #fff;
+}
+.lime {
+  color: #09d3ac;
+  fill: #09d3ac;
+}
+.hero-brackets-fontsize {
+  font-size: 1200%;
+  transform: translate3d(0, 0, 0);
+}
 .contrast {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #000;
 }
 .contact {
@@ -67,11 +84,14 @@
 .contact-group {
   margin-bottom: 0.5rem;
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 0;
   border-width: 0.1rem;
   border-style: solid;
   border-color: #1f2024;
   border-image: initial;
+}
+.contact-message {
+  min-height: 300px;
 }
 .contact button {
   color: rgb(33, 37, 41);
@@ -80,7 +100,7 @@
   height: 6rem;
   width: 210px;
   max-width: 100%;
-  opacity: 0.5 !important;
+  opacity: 1 !important;
   pointer-events: none !important;
   background: white;
   border-radius: 0px;
@@ -88,6 +108,28 @@
   border-style: solid !important;
   border-color: rgb(33, 37, 41) !important;
   border-image: initial !important;
+}
+.client-images img {
+  filter: invert(0%);
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+.client-images img:hover {
+  filter: grayscale(0%);
+}
+.client-images-invert:hover {
+  filter: invert(100%);
+}
+.top-right-triangle {
+  background: linear-gradient(
+      to top right,
+      transparent 25%,
+      #09d3ac 0
+    )
+    top right/40px 40px no-repeat;
+}
+.hidden {
+  display: none;
 }
 @media screen and (min-width: 768px) {
 }

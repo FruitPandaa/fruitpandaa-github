@@ -27,7 +27,7 @@ const navItems = [
 const getNavbarItems = navItems.map(props => {
   return (
     <Nav.Item
-      className="d-flex align-items-center justify-content-center text-uppercase"
+      className="d-flex pr-4 align-items-center justify-content-center text-uppercase"
       key={props.id}
     >
       <Nav.Link key={props.id} href={props.link}>

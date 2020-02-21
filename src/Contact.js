@@ -9,6 +9,14 @@ class Contact extends React.Component {
           noGutters
           className="pt-2 pt-md-5 w-100 py-4 px-xl-0 position-relative"
         >
+          <Col>
+            <h3 className="text-uppercase">Contact Form</h3>
+          </Col>
+        </Row>
+        <Row
+          noGutters
+          className="pt-2 w-100 py-4 px-xl-0 position-relative"
+        >
           <Col className="w-100">
             <Form className="contact col-md-12 d-flex flex-row flex-wrap justify-content-center w-100">
               <Form.Group
@@ -56,13 +64,13 @@ class Contact extends React.Component {
                 controlId="formBasicMessage"
               >
                 <Form.Control
-                  className="contact-input"
+                  className="contact-input contact-message"
                   type="message"
                   placeholder="Message *"
                 />
               </Form.Group>
               <Form.Group
-                className="contact-group"
+                className="contact-group contact-captcha hidden"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
