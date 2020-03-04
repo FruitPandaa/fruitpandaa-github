@@ -1,5 +1,10 @@
 import React from 'react'
 import Lightbox from 'react-image-lightbox'
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock'
 import 'react-image-lightbox/style.css'
 
 const clientLogos = [
@@ -88,6 +93,15 @@ class Images extends React.Component {
     }
   }
 
+  targetElement = null
+
+  componentDidMount() {
+    this.targetElement = document.querySelector('.ReactModalPortal')
+  }
+
+  componentWillUnmount() {
+    clearAllBodyScrollLocks()
+  }
   render() {
     const {lightboxUrl, isOpen} = this.state
 
@@ -105,13 +119,14 @@ class Images extends React.Component {
               key={photoIndex}
               src={src}
               alt={altTag}
-              onClick={() =>
+              onClick={() => {
+                disableBodyScroll(this.targetElement)
                 this.setState({
                   lightboxIndex: {photoIndex},
                   lightboxUrl: fullImg,
                   isOpen: true,
                 })
-              }
+              }}
             />
           </div>
         )
@@ -125,7 +140,10 @@ class Images extends React.Component {
           {isOpen && (
             <Lightbox
               mainSrc={lightboxUrl}
-              onCloseRequest={() => this.setState({isOpen: false})}
+              onCloseRequest={() => {
+                enableBodyScroll(this.targetElement)
+                this.setState({isOpen: false})
+              }}
             />
           )}
         </div>
