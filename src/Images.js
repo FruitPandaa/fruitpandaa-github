@@ -1,102 +1,136 @@
 import React from 'react'
-import {SRLWrapper} from 'simple-react-lightbox'
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css'
 
 const clientLogos = [
   {
-    uId: 1,
+    photoIndex: 1,
     src: './clientlogos/mcdonalds.png',
     fullImg: '',
     altTag: "McDonald's",
   },
   {
-    uId: 2,
+    photoIndex: 2,
     src: './clientlogos/bmw.png',
     fullImg: './clientfullsizeimg/bmw_full.jpeg',
     altTag: 'BMW',
   },
   {
-    uId: 3,
+    photoIndex: 3,
     src: './clientlogos/dell.png',
     fullImg: './clientfullsizeimg/dell_full.jpg',
     altTag: 'DELL',
   },
   {
-    uId: 4,
+    photoIndex: 4,
     src: './clientlogos/durex.png',
     fullImg: '',
     altTag: 'Durex',
   },
   {
-    uId: 5,
+    photoIndex: 5,
     src: './clientlogos/hp.png',
     fullImg: './clientfullsizeimg/hp_full.jpg',
     altTag: 'Hewlett-Packard',
   },
   {
-    uId: 6,
+    photoIndex: 6,
     src: './clientlogos/heineken.png',
     fullImg: '',
     altTag: 'Heineken',
   },
   {
-    uId: 7,
+    photoIndex: 7,
     src: './clientlogos/ea2.png',
     fullImg: '',
     altTag: 'Electronic Arts',
   },
   {
-    uId: 8,
+    photoIndex: 8,
     src: './clientlogos/alienware2.png',
     fullImg: './clientfullsizeimg/alienware_full.jpg',
     altTag: 'Alienware',
   },
   {
-    uId: 9,
+    photoIndex: 9,
     src: './clientlogos/minicooper.png',
     fullImg: '',
     altTag: 'MINI',
   },
   {
-    uId: 10,
+    photoIndex: 10,
     src: './clientlogos/real.png',
     fullImg: '',
     altTag: 'real',
   },
   {
-    uId: 11,
+    photoIndex: 11,
     src: './clientlogos/toyota.png',
     fullImg: '',
     altTag: 'Toyota',
   },
-  {uId: 12, src: './clientlogos/pge.png', fullImg: '', altTag: 'PGE'},
+  {
+    photoIndex: 12,
+    src: './clientlogos/pge.png',
+    fullImg: '',
+    altTag: 'PGE',
+  },
 ]
 
-const getClientLogos = clientLogos.map(
-  ({uId, src, fullImg, altTag}) => {
-    let classStore = 'px-6 py-6 col-md-3'
-    if (!fullImg) {
-      fullImg = './clientfullsizeimg/nopreview.png'
-    } else classStore = classStore + ' top-right-triangle'
-    return (
-      <div className={classStore}>
-        <SRLWrapper>
-          <a href={fullImg} data-attribute="SRL">
+class Images extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lightboxIndex: 0,
+      lightboxUrl: './clientfullsizeimg/nopreview.png',
+      isOpen: false,
+    }
+  }
+
+  render() {
+    const {lightboxUrl, isOpen} = this.state
+
+    const clientElement = clientLogos.map(
+      ({photoIndex, src, fullImg, altTag}) => {
+        let classStore = 'px-6 py-6 col-md-3'
+        if (!fullImg) {
+          fullImg = './clientfullsizeimg/nopreview.png'
+          classStore += ' order-md-1'
+        } else classStore += ' top-right-triangle'
+        return (
+          <div className={classStore}>
             <img
               className="px-6 py-6 col-md-12"
-              key={uId}
+              key={photoIndex}
               src={src}
               alt={altTag}
+              onClick={() =>
+                this.setState({
+                  lightboxIndex: {photoIndex},
+                  lightboxUrl: fullImg,
+                  isOpen: true,
+                })
+              }
             />
-          </a>
-        </SRLWrapper>
-      </div>
+          </div>
+        )
+      },
     )
-  },
-)
 
-class Images extends React.Component {
-  render() {
-    return getClientLogos
+    return (
+      <React.Fragment>
+        {clientElement}
+        <div>
+          {isOpen && (
+            <Lightbox
+              mainSrc={lightboxUrl}
+              onCloseRequest={() => this.setState({isOpen: false})}
+            />
+          )}
+        </div>
+      </React.Fragment>
+    )
   }
 }
 

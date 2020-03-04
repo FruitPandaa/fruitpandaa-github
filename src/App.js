@@ -1,4 +1,5 @@
 import React from 'react'
+import {Router} from '@reach/router'
 import Navigation from './Navigation'
 import Hero from './Hero'
 import Skills from './Skills'
@@ -6,7 +7,6 @@ import Clients from './Clients'
 import Social from './Social'
 import Contact from './Contact'
 import Footer from './Footer'
-import SimpleReactLightbox from 'simple-react-lightbox'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -20,12 +20,16 @@ function App() {
         <main className="mt-2 py-5 darkgray">
           <Hero />
           <Skills />
-          <SimpleReactLightbox>
-            <Clients />
-          </SimpleReactLightbox>
+          <Clients />
           <Social />
           <Contact />
           <Footer />
+          <Router>
+            <Clients path="/clients/" />
+            <Social path="/social/" />
+            <Contact path="/contact/" />
+            <Skills path="/skills/" />
+          </Router>
         </main>
       </div>
     </React.StrictMode>
